@@ -1,19 +1,106 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Patient Dashboard</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Tech.Care</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="app">
 
-<h1>Patient Dashboard</h1>
+    <!-- TOP NAV -->
+    <nav class="navbar">
+      <div class="logo">🌿 Tech.Care</div>
+      <div class="nav-links">
+        <span>Overview</span>
+        <span class="active">🧑 Patients</span>
+        <span>Schedule</span>
+        <span>Message</span>
+        <span>Transactions</span>
+      </div>
+      <div class="doctor-info">Dr. Jose Simmons · General Practitioner</div>
+    </nav>
 
-<div id="patient-info"></div>
+    <div class="main">
 
-<canvas id="bpChart" width="400" height="200"></canvas>
+      <!-- LEFT SIDEBAR -->
+      <aside class="sidebar">
+        <h3>Patients</h3>
+        <div id="patient-list"></div>
+      </aside>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="script.js"></script>
+      <!-- MIDDLE CONTENT -->
+      <section class="content">
+        <h2>Diagnosis History</h2>
+        <div class="chart-box">
+          <canvas id="bpChart"></canvas>
+          <div class="bp-values">
+            <div class="bp-item">
+              <span class="dot systolic"></span>
+              <p>Systolic</p>
+              <h3 id="systolic-val">--</h3>
+              <small id="systolic-level"></small>
+            </div>
+            <div class="bp-item">
+              <span class="dot diastolic"></span>
+              <p>Diastolic</p>
+              <h3 id="diastolic-val">--</h3>
+              <small id="diastolic-level"></small>
+            </div>
+          </div>
+        </div>
 
+        <div class="vitals">
+          <div class="vital-card blue">
+            <div class="vital-icon">🫁</div>
+            <p>Respiratory Rate</p>
+            <h2 id="resp-rate">-- bpm</h2>
+            <small id="resp-level"></small>
+          </div>
+          <div class="vital-card pink">
+            <div class="vital-icon">🌡️</div>
+            <p>Temperature</p>
+            <h2 id="temperature">--°F</h2>
+            <small id="temp-level"></small>
+          </div>
+          <div class="vital-card red">
+            <div class="vital-icon">❤️</div>
+            <p>Heart Rate</p>
+            <h2 id="heart-rate">-- bpm</h2>
+            <small id="heart-level"></small>
+          </div>
+        </div>
+
+        <h2>Diagnostic List</h2>
+        <table class="diag-table">
+          <thead>
+            <tr><th>Problem/Diagnosis</th><th>Description</th><th>Status</th></tr>
+          </thead>
+          <tbody id="diag-list"></tbody>
+        </table>
+      </section>
+
+      <!-- RIGHT PROFILE -->
+      <aside class="profile">
+        <img id="profile-pic" src="" alt="Profile">
+        <h2 id="profile-name"></h2>
+        <div class="profile-info">
+          <p>📅 Date Of Birth<br><strong id="dob"></strong></p>
+          <p>⚧ Gender<br><strong id="gender"></strong></p>
+          <p>📞 Contact Info<br><strong id="phone"></strong></p>
+          <p>📞 Emergency Contact<br><strong id="emergency"></strong></p>
+          <p>🛡️ Insurance Provider<br><strong id="insurance"></strong></p>
+        </div>
+        <button class="show-btn">Show All Information</button>
+
+        <h3>Lab Results</h3>
+        <ul id="lab-results"></ul>
+      </aside>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
